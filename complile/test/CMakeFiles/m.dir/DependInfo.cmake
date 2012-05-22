@@ -5,13 +5,13 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/lcyang/Technical document/Compiling principle/C++版本/test/lex.c" "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles/m.dir/lex.c.o"
+  "/home/lcyang/C++/complile/test/lex.c" "/home/lcyang/C++/complile/test/CMakeFiles/m.dir/lex.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.cpp" "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles/m.dir/Parse.cpp.o"
-  "/home/lcyang/Technical document/Compiling principle/C++版本/test/Symbol.cpp" "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles/m.dir/Symbol.cpp.o"
-  "/home/lcyang/Technical document/Compiling principle/C++版本/test/main.cpp" "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles/m.dir/main.cpp.o"
+  "/home/lcyang/C++/complile/test/Parse.cpp" "/home/lcyang/C++/complile/test/CMakeFiles/m.dir/Parse.cpp.o"
+  "/home/lcyang/C++/complile/test/Symbol.cpp" "/home/lcyang/C++/complile/test/CMakeFiles/m.dir/Symbol.cpp.o"
+  "/home/lcyang/C++/complile/test/main.cpp" "/home/lcyang/C++/complile/test/CMakeFiles/m.dir/main.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

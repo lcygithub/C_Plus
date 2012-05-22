@@ -44,10 +44,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/lcyang/Technical document/Compiling principle/C++版本/test"
+CMAKE_SOURCE_DIR = /home/lcyang/C++/complile/test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/lcyang/Technical document/Compiling principle/C++版本/test"
+CMAKE_BINARY_DIR = /home/lcyang/C++/complile/test
 
 #=============================================================================
 # Target rules for target CMakeFiles/m.dir
@@ -56,7 +56,7 @@ CMAKE_BINARY_DIR = "/home/lcyang/Technical document/Compiling principle/C++版�
 CMakeFiles/m.dir/all:
 	$(MAKE) -f CMakeFiles/m.dir/build.make CMakeFiles/m.dir/depend
 	$(MAKE) -f CMakeFiles/m.dir/build.make CMakeFiles/m.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles"  1 2 3 4
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lcyang/C++/complile/test/CMakeFiles  1 2 3 4
 	@echo "Built target m"
 .PHONY : CMakeFiles/m.dir/all
 
@@ -66,9 +66,9 @@ all: CMakeFiles/m.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/m.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lcyang/C++/complile/test/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/m.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lcyang/C++/complile/test/CMakeFiles 0
 .PHONY : CMakeFiles/m.dir/rule
 
 # Convenience name for target.

@@ -9,7 +9,9 @@
 #            return dict.__getitem__(self,key)
 #        else:
 #            return 0
-            
+import time
+
+
 class TestM(object):
     #make a self.codes and self.labels
     def __init__(self,src):
@@ -37,11 +39,25 @@ class TestM(object):
         stack = []
         symbols = {}
         idx = 0
+        start = time.time()
         while True:
+            if time.time() - start > 5:
+                start = time.time()
+                print "Waring:A dead circle?!"
+                key = ''
+                key = raw_input("continue[Y/N]:")
+                if key == 'Y' or key == 'y':
+                    continue
+                else:
+                    break
             opt,src = self.codes[idx]
 #            print idx,opt,src
             if opt == 'LOAD':
-                stack.append(symbols[src])
+                try:
+                    stack.append(symbols[src])
+                except KeyError:
+                    print "**TEST分析错误 : unassignment in addr:",idx,opt
+                    break
             elif opt == 'LOADI':
                 stack.append(src)
             elif opt == 'STO':
@@ -56,10 +72,18 @@ class TestM(object):
                 stack.append(stack.pop()*stack.pop())
             elif opt == 'DIV':
                 a,b = stack.pop(),stack.pop()
-                stack.append(b/a)
+                try:
+                    stack.append(b/a)
+                except ZeroDivisionError:
+                    print "**TEST分析错误 :ZeroDivisionError"
+                    break
             elif opt == 'MOD':
                 a,b = stack.pop(),stack.pop()
-                stack.append(b%a)
+                try:
+                    stack.append(b%a)
+                except ZeroDivisionError:
+                    print "**TEST分析错误 :ZeroDivisionError"
+                    break
             elif opt == 'BR':
                 idx = self.labels[src]
                 continue
@@ -81,6 +105,8 @@ class TestM(object):
             elif opt == 'OUT':
                 num = stack.pop()
                 if num > 65535:
+                    print "Waring:result out of indexout of 'int'\n"
+                elif num < 0:
                     print "Waring:result out of indexout of 'int'\n"
                 print num
             elif opt == 'STOP':

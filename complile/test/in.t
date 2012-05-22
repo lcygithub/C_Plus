@@ -1,8 +1,9 @@
 {
-    int i;
-    i = 2;
-    i = i%2;
-    i = i + 1;
-    i=i%2;
-    write i;
+int i;
+int j;
+read i;
+while(i<100)
+{
+	write i;
+}
 }

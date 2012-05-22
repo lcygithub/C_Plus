@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/lcyang/Technical document/Compiling principle/C++版本/test"
+CMAKE_SOURCE_DIR = /home/lcyang/C++/complile/test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/lcyang/Technical document/Compiling principle/C++版本/test"
+CMAKE_BINARY_DIR = /home/lcyang/C++/complile/test
 
 # Include any dependencies generated for this target.
 include CMakeFiles/m.dir/depend.make
@@ -48,17 +48,17 @@ include CMakeFiles/m.dir/flags.make
 
 CMakeFiles/m.dir/lex.c.o: CMakeFiles/m.dir/flags.make
 CMakeFiles/m.dir/lex.c.o: lex.c
-	$(CMAKE_COMMAND) -E cmake_progress_report "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles" $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lcyang/C++/complile/test/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/m.dir/lex.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/m.dir/lex.c.o   -c "/home/lcyang/Technical document/Compiling principle/C++版本/test/lex.c"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/m.dir/lex.c.o   -c /home/lcyang/C++/complile/test/lex.c
 
 CMakeFiles/m.dir/lex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/m.dir/lex.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E "/home/lcyang/Technical document/Compiling principle/C++版本/test/lex.c" > CMakeFiles/m.dir/lex.c.i
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/lcyang/C++/complile/test/lex.c > CMakeFiles/m.dir/lex.c.i
 
 CMakeFiles/m.dir/lex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/m.dir/lex.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S "/home/lcyang/Technical document/Compiling principle/C++版本/test/lex.c" -o CMakeFiles/m.dir/lex.c.s
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/lcyang/C++/complile/test/lex.c -o CMakeFiles/m.dir/lex.c.s
 
 CMakeFiles/m.dir/lex.c.o.requires:
 .PHONY : CMakeFiles/m.dir/lex.c.o.requires
@@ -72,17 +72,17 @@ CMakeFiles/m.dir/lex.c.o.provides.build: CMakeFiles/m.dir/lex.c.o
 
 CMakeFiles/m.dir/Parse.cpp.o: CMakeFiles/m.dir/flags.make
 CMakeFiles/m.dir/Parse.cpp.o: Parse.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles" $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lcyang/C++/complile/test/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/m.dir/Parse.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/m.dir/Parse.cpp.o -c "/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.cpp"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/m.dir/Parse.cpp.o -c /home/lcyang/C++/complile/test/Parse.cpp
 
 CMakeFiles/m.dir/Parse.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m.dir/Parse.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.cpp" > CMakeFiles/m.dir/Parse.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lcyang/C++/complile/test/Parse.cpp > CMakeFiles/m.dir/Parse.cpp.i
 
 CMakeFiles/m.dir/Parse.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m.dir/Parse.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.cpp" -o CMakeFiles/m.dir/Parse.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lcyang/C++/complile/test/Parse.cpp -o CMakeFiles/m.dir/Parse.cpp.s
 
 CMakeFiles/m.dir/Parse.cpp.o.requires:
 .PHONY : CMakeFiles/m.dir/Parse.cpp.o.requires
@@ -96,17 +96,17 @@ CMakeFiles/m.dir/Parse.cpp.o.provides.build: CMakeFiles/m.dir/Parse.cpp.o
 
 CMakeFiles/m.dir/Symbol.cpp.o: CMakeFiles/m.dir/flags.make
 CMakeFiles/m.dir/Symbol.cpp.o: Symbol.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles" $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lcyang/C++/complile/test/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/m.dir/Symbol.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/m.dir/Symbol.cpp.o -c "/home/lcyang/Technical document/Compiling principle/C++版本/test/Symbol.cpp"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/m.dir/Symbol.cpp.o -c /home/lcyang/C++/complile/test/Symbol.cpp
 
 CMakeFiles/m.dir/Symbol.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m.dir/Symbol.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/home/lcyang/Technical document/Compiling principle/C++版本/test/Symbol.cpp" > CMakeFiles/m.dir/Symbol.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lcyang/C++/complile/test/Symbol.cpp > CMakeFiles/m.dir/Symbol.cpp.i
 
 CMakeFiles/m.dir/Symbol.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m.dir/Symbol.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/home/lcyang/Technical document/Compiling principle/C++版本/test/Symbol.cpp" -o CMakeFiles/m.dir/Symbol.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lcyang/C++/complile/test/Symbol.cpp -o CMakeFiles/m.dir/Symbol.cpp.s
 
 CMakeFiles/m.dir/Symbol.cpp.o.requires:
 .PHONY : CMakeFiles/m.dir/Symbol.cpp.o.requires
@@ -120,17 +120,17 @@ CMakeFiles/m.dir/Symbol.cpp.o.provides.build: CMakeFiles/m.dir/Symbol.cpp.o
 
 CMakeFiles/m.dir/main.cpp.o: CMakeFiles/m.dir/flags.make
 CMakeFiles/m.dir/main.cpp.o: main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles" $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lcyang/C++/complile/test/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/m.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/m.dir/main.cpp.o -c "/home/lcyang/Technical document/Compiling principle/C++版本/test/main.cpp"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/m.dir/main.cpp.o -c /home/lcyang/C++/complile/test/main.cpp
 
 CMakeFiles/m.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/m.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/home/lcyang/Technical document/Compiling principle/C++版本/test/main.cpp" > CMakeFiles/m.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lcyang/C++/complile/test/main.cpp > CMakeFiles/m.dir/main.cpp.i
 
 CMakeFiles/m.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/m.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/home/lcyang/Technical document/Compiling principle/C++版本/test/main.cpp" -o CMakeFiles/m.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lcyang/C++/complile/test/main.cpp -o CMakeFiles/m.dir/main.cpp.s
 
 CMakeFiles/m.dir/main.cpp.o.requires:
 .PHONY : CMakeFiles/m.dir/main.cpp.o.requires
@@ -176,6 +176,6 @@ CMakeFiles/m.dir/clean:
 .PHONY : CMakeFiles/m.dir/clean
 
 CMakeFiles/m.dir/depend:
-	cd "/home/lcyang/Technical document/Compiling principle/C++版本/test" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/lcyang/Technical document/Compiling principle/C++版本/test" "/home/lcyang/Technical document/Compiling principle/C++版本/test" "/home/lcyang/Technical document/Compiling principle/C++版本/test" "/home/lcyang/Technical document/Compiling principle/C++版本/test" "/home/lcyang/Technical document/Compiling principle/C++版本/test/CMakeFiles/m.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/lcyang/C++/complile/test && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lcyang/C++/complile/test /home/lcyang/C++/complile/test /home/lcyang/C++/complile/test /home/lcyang/C++/complile/test /home/lcyang/C++/complile/test/CMakeFiles/m.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/m.dir/depend
 

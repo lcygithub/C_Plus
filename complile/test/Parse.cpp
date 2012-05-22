@@ -1,6 +1,7 @@
 #include "Parse.h"
 #include <cstring>
 #include <iostream>
+#include <stdio.h>
 using namespace std;
 
 Token token;
@@ -56,8 +57,8 @@ bool Parse::program()
 
 	next();
 	declaration_list();//声明表
+	printf("%s list dprogram \n",token.token);
 	cout<<symbols<<endl;
-	
 	statement_list();//语句表
 
     rd<<"STOP"<<ENDL;
@@ -67,6 +68,7 @@ bool Parse::program()
 bool Parse::declaration_list()
 {
 	//分析声明表
+	printf("%s declaration_list",token.token);
 	while(token == "int"){
 		next();
 		declaration_stat();
@@ -77,9 +79,11 @@ bool Parse::declaration_list()
 bool Parse::declaration_stat()
 {
 	//声明语句
+	printf("%s declaration_stat\n",token.token);
 	if(token != "ID"){
 		throw "missing ID";
 	}
+
 	next();
 
 	if(token != ";"){
@@ -91,7 +95,7 @@ bool Parse::declaration_stat()
 	    sprintf(buf,"redefine `%s`",token.token1);
 	    throw (const char*)buf;
 	}
-	
+	printf(" declaration_stat \n");
 	next();
     return true;
 }
@@ -101,6 +105,7 @@ bool Parse::statement_list()
 	//语句表
 	while(token != "}"){
 		//next();
+		printf("statement_list \n");
 		statement();
 	}
 	next();
@@ -328,9 +333,11 @@ bool Parse::compound_stat()
 bool Parse::expression_stat()
 {
 	//表达式语句
+	printf(" expression_stat \n");
 	if(token == ";"){
 		next();
 	}else{
+		printf(" into expression \n");
 		expression();
 		if(token != ";"){
 			throw "missing `;`";
@@ -343,12 +350,13 @@ bool Parse::expression_stat()
 bool Parse::expression()
 {
 	//表达式
+	printf("in expression token : %s \n",token.token);
 	if(token == "ID"){
 		Token tmp;
 		strcpy(tmp.token,token.token);
 		strcpy(tmp.token1,token.token1);
 		next(true);
-
+        
 		if(token == "="){
 		    int addr = symbols.find(token.old1);
 		    if(addr==-1){
@@ -366,6 +374,7 @@ bool Parse::expression()
 			bool_expr();
 		}
 	}else{
+		printf("in bool_expr \n");
 		bool_expr();
 	}
     return true;
@@ -374,6 +383,7 @@ bool Parse::expression()
 bool Parse::bool_expr()
 {
 	//bool表达式
+	printf("bool_expr \n");
 	additive_expr();
     map<ConstStr,const char*>::iterator iter;
     iter = bool_sym.find(ConstStr(token.token));    
@@ -388,6 +398,7 @@ bool Parse::bool_expr()
 bool Parse::additive_expr()
 {
 	//算术表达式
+	printf("additive_expr \n");
 	term();
 	while(token == "+" || token == "-"){
 	    char m = token.token[0];
@@ -405,6 +416,7 @@ bool Parse::additive_expr()
 bool Parse::term()
 {
 	//项
+	printf("term \n");
 	factor();
 	while(token == "*" || token == "/" || token.token[0] == '%'){
 	    char back = token.token[0];
@@ -424,7 +436,10 @@ bool Parse::term()
 bool Parse::factor()
 {
 	//因子
+	printf("factor \n");
 	if(token == "("){
+		printf("from factor into expression \n");
+		next();
 		expression();
 		if(token != ")"){
 			throw "missing `)`";

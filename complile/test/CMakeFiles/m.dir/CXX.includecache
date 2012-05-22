@@ -6,17 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.cpp
+/home/lcyang/C++/complile/test/Parse.cpp
 Parse.h
-/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.h
+/home/lcyang/C++/complile/test/Parse.h
 cstring
 -
 iostream
 -
+stdio.h
+-
 
-/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.h
+/home/lcyang/C++/complile/test/Parse.h
 Symbol.h
-/home/lcyang/Technical document/Compiling principle/C++版本/test/Symbol.h
+/home/lcyang/C++/complile/test/Symbol.h
 fstream
 -
 cstring
@@ -26,19 +28,11 @@ map
 string
 -
 
-/home/lcyang/Technical document/Compiling principle/C++版本/test/Symbol.h
+/home/lcyang/C++/complile/test/Symbol.h
 map
 -
 iostream
 -
 string
--
-
-/home/lcyang/Technical document/Compiling principle/C++版本/test/main.cpp
-Parse.h
-/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.h
-fstream
--
-iostream
 -
 

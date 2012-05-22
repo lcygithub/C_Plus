@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.cpp
+Parse.h
+/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.h
+cstring
+-
+iostream
+-
+
+/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.h
+Symbol.h
+/home/lcyang/Technical document/Compiling principle/C++版本/test/Symbol.h
+fstream
+-
+cstring
+-
+map
+-
+string
+-
+
+/home/lcyang/Technical document/Compiling principle/C++版本/test/Symbol.h
+map
+-
+iostream
+-
+string
+-
+
+/home/lcyang/Technical document/Compiling principle/C++版本/test/main.cpp
+Parse.h
+/home/lcyang/Technical document/Compiling principle/C++版本/test/Parse.h
+fstream
+-
+iostream
+-
+

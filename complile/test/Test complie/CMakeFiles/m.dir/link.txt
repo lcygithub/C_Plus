@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/m.dir/lex.c.o CMakeFiles/m.dir/Parse.cpp.o CMakeFiles/m.dir/Symbol.cpp.o CMakeFiles/m.dir/main.cpp.o  -o m -rdynamic 

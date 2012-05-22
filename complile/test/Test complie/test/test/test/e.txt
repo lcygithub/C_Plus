@@ -1,0 +1,12 @@
+{
+int a;
+int b;
+int i;
+i=3;
+a=13;
+b=2;
+while(b<a)
+b=b+i;
+write a;
+write b;
+}

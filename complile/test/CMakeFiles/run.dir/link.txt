@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/run.dir/lex.c.o CMakeFiles/run.dir/Parse.cpp.o CMakeFiles/run.dir/Symbol.cpp.o CMakeFiles/run.dir/main.cpp.o  -o run -rdynamic 

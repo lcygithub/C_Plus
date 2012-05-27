@@ -59,6 +59,10 @@ void MainWindow::about()
 
 void MainWindow::stateChanged(Phonon::State newState, Phonon::State /* oldState */)
 {
+    if(sources.size() == 0) {
+        nextAction->setEnabled(false);
+        previousAction->setEnabled(false);
+    }
     switch (newState) {
         case Phonon::ErrorState:
             if (mediaObject->errorType() == Phonon::FatalError) {
@@ -206,6 +210,8 @@ void MainWindow::next() {
         mediaObject->stop();
 }
 void MainWindow::preview() {
+    if(sources.size() == 0) 
+        return;
     bool wasPlaying = mediaObject->state() == Phonon::PlayingState;
 
     mediaObject->stop();
@@ -326,24 +332,28 @@ void MainWindow::setupUi()
     connect(musicTable, SIGNAL(cellDoubleClicked(int,int)),
             this, SLOT(tableClicked(int,int)));
 
-    QHBoxLayout *seekerLayout = new QHBoxLayout;
-    seekerLayout->addWidget(seekSlider);
-    seekerLayout->addWidget(timeLcd);
+    QGridLayout *seekerLayout = new QGridLayout;
+    seekerLayout->addWidget(seekSlider,0,0);
+    seekerLayout->addWidget(timeLcd,0,1);
 
-    QHBoxLayout *playbackLayout = new QHBoxLayout;
+    QGridLayout *playbackLayout = new QGridLayout;
 
-    playbackLayout->addWidget(bar);
-    playbackLayout->addWidget(volumeLabel);
-    playbackLayout->addWidget(volumeSlider);
+    playbackLayout->addWidget(bar,0,0);
+    playbackLayout->addWidget(volumeSlider,0,1);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addWidget(musicTable);
-    mainLayout->addLayout(seekerLayout);
-    mainLayout->addLayout(playbackLayout);
+    QGridLayout *upLayout = new QGridLayout;
+    upLayout->addWidget(musicTable,0,0);
+
+    QGridLayout *downLayout = new QGridLayout;
+    downLayout->addLayout(seekerLayout,0,0);
+    downLayout->addLayout(playbackLayout,1,0);
+
+    QGridLayout *mainLayout = new QGridLayout;
+    mainLayout->addLayout(upLayout,0,0);
+    mainLayout->addLayout(downLayout,1,0);
 
     QWidget *widget = new QWidget;
     widget->setLayout(mainLayout);
-
     setCentralWidget(widget);
     setWindowTitle("Lcyang's Music Player");
 }

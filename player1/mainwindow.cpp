@@ -57,8 +57,22 @@ void MainWindow::about()
         tr("Welcome to lcyang's music player"));
 }
 
-void MainWindow::stateChanged(Phonon::State newState, Phonon::State /* oldState */)
+void MainWindow::stateChanged(Phonon::State newState, Phonon::State oldState )
 {
+
+    if (oldState == Phonon::LoadingState) {
+        QRect videoHintRect = QRect(QPoint(0, 0), m_videoWindow.sizeHint());
+        QRect newVideoRect = QApplication::desktop()->screenGeometry().intersected(videoHintRect);
+            if (mediaObject->hasVideo()) {
+                 // Flush event que so that sizeHint takes the
+                 // recently shown/hidden m_videoWindow into account:
+                qApp->processEvents();
+                resize(sizeHint());
+            } else {
+                resize(minimumSize());
+         }
+     }
+
     if(sources.size() == 0) {
         nextAction->setEnabled(false);
         previousAction->setEnabled(false);
@@ -348,9 +362,14 @@ void MainWindow::setupUi()
     downLayout->addLayout(seekerLayout,0,0);
     downLayout->addLayout(playbackLayout,1,0);
 
+    QHBoxLayout *m_layout = new QHBoxLayout();
+    m_layout->addWidget(&m_videoWindow);
+    //m_videoWindow.hide();
+
     QGridLayout *mainLayout = new QGridLayout;
-    mainLayout->addLayout(upLayout,0,0);
-    mainLayout->addLayout(downLayout,1,0);
+    mainLayout->addLayout(m_layout,0,0);
+    mainLayout->addLayout(upLayout,1,0);
+    mainLayout->addLayout(downLayout,2,0);
 
     QWidget *widget = new QWidget;
     widget->setLayout(mainLayout);

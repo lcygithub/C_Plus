@@ -21,6 +21,7 @@
  class QTextEdit;
  class QMenu;
  class MediaPlayer;
+class QTableWidget;
 
  class MediaVideoWidget : public Phonon::VideoWidget
  {
@@ -92,6 +93,7 @@
      MediaVideoWidget *m_videoWidget;
      Phonon::Path m_audioOutputPath;
      const bool m_hasSmallScreen;
+     QTableWidget *musicTable;
  };
 
  #endif //MEDIAPLAYER_H

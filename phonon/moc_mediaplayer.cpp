@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mediaplayer.h'
 **
-** Created: Mon May 28 19:52:50 2012
+** Created: Mon May 28 21:43:53 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
 **
 ** WARNING! All changes made in this file will be lost!

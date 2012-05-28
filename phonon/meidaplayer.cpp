@@ -69,6 +69,18 @@
      slider = new Phonon::SeekSlider(this);
      slider->setMediaObject(&m_MediaObject);
      volume = new Phonon::VolumeSlider(&m_AudioOutput);
+    /*right layout*/
+    QStringList headers;
+    headers << tr("Title") << tr("Artist") << tr("Album") << tr("Year");
+
+    musicTable = new QTableWidget(0, 4);
+    musicTable->setHorizontalHeaderLabels(headers);
+    musicTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    musicTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    //connect(musicTable, SIGNAL(cellDoubleClicked(int,int)),
+    //        this, SLOT(tableClicked(int,int)));
+    QVBoxLayout *upLayout = new QVBoxLayout;
+    upLayout->addWidget(musicTable);
 
     /*up layout*/
      QVBoxLayout *vLayout = new QVBoxLayout(this);
@@ -76,7 +88,7 @@
 
      /*dowm layout*/
      QHBoxLayout *layout = new QHBoxLayout();
-
+    
      info = new QLabel(this);
      info->setMinimumHeight(70);
      info->setAcceptDrops(false);
@@ -119,9 +131,15 @@
      buttonPanelLayout->addWidget(sliderPanel);
      buttonPanelLayout->setContentsMargins(0, 0, 0, 0);
      QWidget *buttonPanelWidget = new QWidget(this);
-     buttonPanelWidget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+     //buttonPanelWidget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
      buttonPanelWidget->setLayout(buttonPanelLayout);
-     vLayout->addWidget(buttonPanelWidget);
+     
+     QWidget *musicLable = new QWidget(this);
+     musicLable->setLayout(upLayout);
+
+     vLayout->addWidget(buttonPanelWidget,0,0);
+
+     vLayout->addWidget(musicLable,1,0);
      setLayout(vLayout);
 
      // Create menu bar:
@@ -166,7 +184,7 @@
  }
  void MediaPlayer::stateChanged(Phonon::State newstate, Phonon::State oldstate)
  {
-     Q_UNUSED(oldstate);
+//     Q_UNUSED(oldstate);
 
      if (oldstate == Phonon::LoadingState) {
          QRect videoHintRect = QRect(QPoint(0, 0), m_videoWindow.sizeHint());

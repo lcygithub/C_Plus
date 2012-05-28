@@ -7,8 +7,6 @@ int main(int argv, char **args)
     QTranslator translator;
     translator.load("GBK");
     app.installTranslator(&translator);
-    app.setApplicationName("Music Player");
-    app.setQuitOnLastWindowClosed(true);
     MainWindow window;
     window.show();
 

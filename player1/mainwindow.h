@@ -42,7 +42,8 @@ private:
     void setupActions();
     void setupMenus();
     void setupUi();
-
+    
+    QWidget m_videoWindow;
     Phonon::SeekSlider *seekSlider;
     Phonon::MediaObject *mediaObject;
     Phonon::MediaObject *metaInformationResolver;
@@ -61,6 +62,7 @@ private:
     QAction *aboutQtAction;
     QLCDNumber *timeLcd;
     QTableWidget *musicTable;
+
 };
 
 #endif

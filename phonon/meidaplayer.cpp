@@ -108,7 +108,6 @@
      if (e->mimeData()->hasUrls())
          e->acceptProposedAction();
  }
-
  MediaPlayer::MediaPlayer(const QString &filePath,
                           const bool hasSmallScreen) :
          playButton(0), nextEffect(0), settingsDialog(0), ui(0),
@@ -242,7 +241,6 @@
          setFile(filePath);
      resize(minimumSizeHint());
  }
-
  void MediaPlayer::stateChanged(Phonon::State newstate, Phonon::State oldstate)
  {
      Q_UNUSED(oldstate);
@@ -300,7 +298,6 @@
      }
 
  }
-
  void MediaPlayer::initVideoWindow()
  {
      QVBoxLayout *videoLayout = new QVBoxLayout();
@@ -309,8 +306,6 @@
      m_videoWindow.setLayout(videoLayout);
      m_videoWindow.setMinimumSize(100, 100);
  }
-
-
  void MediaPlayer::handleDrop(QDropEvent *e)
  {
      QList<QUrl> urls = e->mimeData()->urls();
@@ -342,10 +337,6 @@
      forwardButton->setEnabled(m_MediaObject.queue().size() > 0);
      m_MediaObject.play();
  }
-
-
-
-
  void MediaPlayer::dropEvent(QDropEvent *e)
  {
      if (e->mimeData()->hasUrls() && e->proposedAction() != Qt::LinkAction) {
@@ -355,12 +346,10 @@
          e->ignore();
      }
  }
-
  void MediaPlayer::dragEnterEvent(QDragEnterEvent *e)
  {
      dragMoveEvent(e);
  }
-
  void MediaPlayer::dragMoveEvent(QDragMoveEvent *e)
  {
      if (e->mimeData()->hasUrls()) {
@@ -369,7 +358,6 @@
          }
      }
  }
-
  void MediaPlayer::playPause()
  {
      if (m_MediaObject.state() == Phonon::PlayingState)
@@ -380,21 +368,18 @@
          m_MediaObject.play();
      }
  }
-
  void MediaPlayer::setFile(const QString &fileName)
  {
      setWindowTitle(fileName.right(fileName.length() - fileName.lastIndexOf('/') - 1));
      m_MediaObject.setCurrentSource(Phonon::MediaSource(fileName));
      m_MediaObject.play();
  }
-
  void MediaPlayer::setLocation(const QString& location)
  {
      setWindowTitle(location.right(location.length() - location.lastIndexOf('/') - 1));
      m_MediaObject.setCurrentSource(Phonon::MediaSource(QUrl::fromEncoded(location.toUtf8())));
      m_MediaObject.play();
  }
-
  bool MediaPlayer::playPauseForDialog()
  {
      // If we're running on a small screen, we want to pause the video when
@@ -408,7 +393,6 @@
      }
      return false;
  }
-
  void MediaPlayer::openFile()
  {
      const bool hasPausedForDialog = playPauseForDialog();
@@ -479,7 +463,6 @@
 
      info->setText(title + artist + bitrate);
  }
-
  void MediaPlayer::updateTime()
  {
      long len = m_MediaObject.totalTime();
@@ -508,12 +491,10 @@
      }
      timeLabel->setText(timeString);
  }
-
  void MediaPlayer::rewind()
  {
      m_MediaObject.seek(0);
  }
-
  void MediaPlayer::forward()
  {
      QList<Phonon::MediaSource> queue = m_MediaObject.queue();
@@ -523,7 +504,6 @@
          m_MediaObject.play();
      }
  }
-
  void MediaPlayer::openUrl()
  {
      QSettings settings;
@@ -536,16 +516,12 @@
          settings.setValue("location", sourceURL);
      }
  }
-
  void MediaPlayer::finished()
  {
  }
- /*
-
  void MediaPlayer::hasVideoChanged(bool bHasVideo)
  {
      info->setVisible(!bHasVideo);
      m_videoWindow.setVisible(bHasVideo);
      m_fullScreenAction->setEnabled(bHasVideo);
  }
- */

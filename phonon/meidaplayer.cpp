@@ -229,61 +229,6 @@
      m_videoWindow.setLayout(videoLayout);
      m_videoWindow.setMinimumSize(100, 100);
  }
-  /*
- void MediaPlayer::handleDrop(QDropEvent *e)
- {
-     QList<QUrl> urls = e->mimeData()->urls();
-     if (e->proposedAction() == Qt::MoveAction){
-         // Just add to the queue:
-         for (int i=0; i<urls.size(); i++)
-             m_MediaObject.enqueue(Phonon::MediaSource(urls[i].toLocalFile()));
-     } else {
-         // Create new queue:
-         m_MediaObject.clearQueue();
-         if (urls.size() > 0) {
-             QString fileName = urls[0].toLocalFile();
-             QDir dir(fileName);
-             if (dir.exists()) {
-                 dir.setFilter(QDir::Files);
-                 QStringList entries = dir.entryList();
-                 if (entries.size() > 0) {
-                     setFile(fileName + QDir::separator() +  entries[0]);
-                     for (int i=1; i< entries.size(); ++i)
-                         m_MediaObject.enqueue(fileName + QDir::separator() + entries[i]);
-                 }
-             } else {
-                 setFile(fileName);
-                 for (int i=1; i<urls.size(); i++)
-                     m_MediaObject.enqueue(Phonon::MediaSource(urls[i].toLocalFile()));
-             }
-         }
-     }
-     forwardButton->setEnabled(m_MediaObject.queue().size() > 0);
-     m_MediaObject.play();
- }
-
- void MediaPlayer::dropEvent(QDropEvent *e)
- {
-     if (e->mimeData()->hasUrls() && e->proposedAction() != Qt::LinkAction) {
-         e->acceptProposedAction();
-         handleDrop(e);
-     } else {
-         e->ignore();
-     }
- }
- void MediaPlayer::dragEnterEvent(QDragEnterEvent *e)
- {
-     dragMoveEvent(e);
- }
- void MediaPlayer::dragMoveEvent(QDragMoveEvent *e)
- {
-     if (e->mimeData()->hasUrls()) {
-         if (e->proposedAction() == Qt::CopyAction || e->proposedAction() == Qt::MoveAction){
-             e->acceptProposedAction();
-         }
-     }
- }
- */
  void MediaPlayer::playPause()
  {
      if (m_MediaObject.state() == Phonon::PlayingState)

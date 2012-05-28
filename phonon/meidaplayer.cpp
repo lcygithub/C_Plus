@@ -1,9 +1,6 @@
  #include <QtGui>
-
- #define SLIDER_RANGE 8
-
  #include "mediaplayer.h"
- #include "ui_settings.h"
+ #define SLIDER_RANGE 8
 
  MediaVideoWidget::MediaVideoWidget(MediaPlayer *player, QWidget *parent) :
      Phonon::VideoWidget(parent), m_player(player), m_action(this)
@@ -29,100 +26,32 @@
      setFullScreen(!isFullScreen());
  }
 
- void MediaVideoWidget::keyPressEvent(QKeyEvent *e)
- {
-     if(!e->modifiers()) {
-         // On non-QWERTY Symbian key-based devices, there is no space key.
-         // The zero key typically is marked with a space character.
-         if (e->key() == Qt::Key_Space || e->key() == Qt::Key_0) {
-             m_player->playPause();
-             e->accept();
-             return;
-         }
-
-         // On Symbian devices, there is no key which maps to Qt::Key_Escape
-         // On devices which lack a backspace key (i.e. non-QWERTY devices),
-         // the 'C' key maps to Qt::Key_Backspace
-         else if (e->key() == Qt::Key_Escape || e->key() == Qt::Key_Backspace) {
-             setFullScreen(false);
-             e->accept();
-             return;
-         }
-     }
-     Phonon::VideoWidget::keyPressEvent(e);
- }
-
- bool MediaVideoWidget::event(QEvent *e)
- {
-     switch(e->type())
-     {
-     case QEvent::Close:
-         //we just ignore the cose events on the video widget
-         //this prevents ALT+F4 from having an effect in fullscreen mode
-         e->ignore();
-         return true;
-     case QEvent::MouseMove:
- #ifndef QT_NO_CURSOR
-         unsetCursor();
- #endif
-         //fall through
-     case QEvent::WindowStateChange:
-         {
-             //we just update the state of the checkbox, in case it wasn't already
-             m_action.setChecked(windowState() & Qt::WindowFullScreen);
-             const Qt::WindowFlags flags = m_player->windowFlags();
-             if (windowState() & Qt::WindowFullScreen) {
-                 m_timer.start(1000, this);
-             } else {
-                 m_timer.stop();
- #ifndef QT_NO_CURSOR
-                 unsetCursor();
- #endif
-             }
-         }
-         break;
-     default:
-         break;
-     }
-
-     return Phonon::VideoWidget::event(e);
- }
-
  void MediaVideoWidget::timerEvent(QTimerEvent *e)
  {
+    /*
      if (e->timerId() == m_timer.timerId()) {
          //let's store the cursor shape
  #ifndef QT_NO_CURSOR
          setCursor(Qt::BlankCursor);
  #endif
      }
+    */
+
      Phonon::VideoWidget::timerEvent(e);
  }
 
- void MediaVideoWidget::dropEvent(QDropEvent *e)
- {
-     m_player->handleDrop(e);
- }
-
- void MediaVideoWidget::dragEnterEvent(QDragEnterEvent *e) {
-     if (e->mimeData()->hasUrls())
-         e->acceptProposedAction();
- }
  MediaPlayer::MediaPlayer(const QString &filePath,
                           const bool hasSmallScreen) :
-         playButton(0), nextEffect(0), settingsDialog(0), ui(0),
+             playButton(0), 
              m_AudioOutput(Phonon::VideoCategory),
              m_videoWidget(new MediaVideoWidget(this)),
              m_hasSmallScreen(hasSmallScreen)
  {
-     setWindowTitle(tr("Media Player"));
-     setContextMenuPolicy(Qt::CustomContextMenu);
-     m_videoWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+     setWindowTitle(tr("Lcyang's Media Player"));
 
      QSize buttonSize(34, 28);
-
+     
      QPushButton *openButton = new QPushButton(this);
-
      openButton->setIcon(style()->standardIcon(QStyle::SP_DialogOpenButton));
 
      rewindButton = new QPushButton(this);
@@ -141,8 +70,8 @@
      slider->setMediaObject(&m_MediaObject);
      volume = new Phonon::VolumeSlider(&m_AudioOutput);
 
+    /*up layout*/
      QVBoxLayout *vLayout = new QVBoxLayout(this);
-     /*up layout*/
      vLayout->setContentsMargins(8,8,8,8);
 
      /*dowm layout*/
@@ -155,11 +84,10 @@
      info->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
      info->setLineWidth(2);
      info->setAutoFillBackground(true);
-
      QPalette palette;
      palette.setBrush(QPalette::WindowText, Qt::black);
      info->setStyleSheet("border-image:url(:/images/screen.png) ; border-width:3px");
-     info->setText(tr("<center>There is No media</center>"));
+     info->setText(tr("<center>No media</center>"));
      info->setPalette(palette);
 
      volume->setFixedWidth(120);
@@ -168,7 +96,6 @@
      layout->addWidget(rewindButton);
      layout->addWidget(playButton);
      layout->addWidget(forwardButton);
-
      layout->addStretch();
      layout->addWidget(volume);
 
@@ -195,10 +122,6 @@
      buttonPanelWidget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
      buttonPanelWidget->setLayout(buttonPanelLayout);
      vLayout->addWidget(buttonPanelWidget);
-
-     QHBoxLayout *labelLayout = new QHBoxLayout();
-
-     vLayout->addLayout(labelLayout);
      setLayout(vLayout);
 
      // Create menu bar:
@@ -306,6 +229,7 @@
      m_videoWindow.setLayout(videoLayout);
      m_videoWindow.setMinimumSize(100, 100);
  }
+  /*
  void MediaPlayer::handleDrop(QDropEvent *e)
  {
      QList<QUrl> urls = e->mimeData()->urls();
@@ -337,6 +261,7 @@
      forwardButton->setEnabled(m_MediaObject.queue().size() > 0);
      m_MediaObject.play();
  }
+
  void MediaPlayer::dropEvent(QDropEvent *e)
  {
      if (e->mimeData()->hasUrls() && e->proposedAction() != Qt::LinkAction) {
@@ -358,6 +283,7 @@
          }
      }
  }
+ */
  void MediaPlayer::playPause()
  {
      if (m_MediaObject.state() == Phonon::PlayingState)
@@ -397,7 +323,7 @@
  {
      const bool hasPausedForDialog = playPauseForDialog();
 
-     QStringList fileNames = QFileDialog::getOpenFileNames(this, QString(),
+     fileNames = QFileDialog::getOpenFileNames(this, QString(),
                                                            QDesktopServices::storageLocation(QDesktopServices::MusicLocation));
 
      if (hasPausedForDialog)

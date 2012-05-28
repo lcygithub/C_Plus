@@ -10,10 +10,6 @@
  #include <QtGui/QAction>
 
  #include <phonon/audiooutput.h>
- #include <phonon/backendcapabilities.h>
- #include <phonon/effect.h>
- #include <phonon/effectparameter.h>
- #include <phonon/effectwidget.h>
  #include <phonon/mediaobject.h>
  #include <phonon/seekslider.h>
  #include <phonon/videowidget.h>
@@ -24,8 +20,6 @@
  class QSlider;
  class QTextEdit;
  class QMenu;
- class Ui_settings;
-
  class MediaPlayer;
 
  class MediaVideoWidget : public Phonon::VideoWidget
@@ -44,34 +38,25 @@
 
  protected:
      void mouseDoubleClickEvent(QMouseEvent *e);
-     void keyPressEvent(QKeyEvent *e);
-     bool event(QEvent *e);
      void timerEvent(QTimerEvent *e);
-     void dropEvent(QDropEvent *e);
-     void dragEnterEvent(QDragEnterEvent *e);
-
  private:
      MediaPlayer *m_player;
      QBasicTimer m_timer;
      QAction m_action;
  };
 
- class MediaPlayer :
-             public QWidget
+ class MediaPlayer : public QWidget
  {
      Q_OBJECT
  public:
-     MediaPlayer(const QString &,
-                 const bool hasSmallScreen);
-
-     void dragEnterEvent(QDragEnterEvent *e);
-     void dragMoveEvent(QDragMoveEvent *e);
-     void dropEvent(QDropEvent *e);
-     void handleDrop(QDropEvent *e);
+     MediaPlayer(const QString &,const bool hasSmallScreen);
+     //void dragEnterEvent(QDragEnterEvent *e);
+     //void dragMoveEvent(QDragMoveEvent *e);
+     //void dropEvent(QDropEvent *e);
+    // void handleDrop(QDropEvent *e);
      void setFile(const QString &text);
      void setLocation(const QString &location);
      void initVideoWindow();
-     //void initSettingsDialog();
 
  public slots:
      void openFile();
@@ -81,19 +66,13 @@
      void updateTime();
      void finished();
      void playPause();
-
-
- private slots:
-
      void stateChanged(Phonon::State newstate, Phonon::State oldstate);
-
      void openUrl();
-
      void hasVideoChanged(bool);
 
  private:
      bool playPauseForDialog();
-
+     QStringList fileNames;
      QIcon playIcon;
      QIcon pauseIcon;
      QMenu *fileMenu;
@@ -104,13 +83,7 @@
      QLabel *timeLabel;
      QLabel *progressLabel;
      Phonon::VolumeSlider *volume;
-     QSlider *m_hueSlider;
-     QSlider *m_satSlider;
-     QSlider *m_contSlider;
      QLabel *info;
-     Phonon::Effect *nextEffect;
-     QDialog *settingsDialog;
-     Ui_settings *ui;
      QAction *m_fullScreenAction;
 
      QWidget m_videoWindow;

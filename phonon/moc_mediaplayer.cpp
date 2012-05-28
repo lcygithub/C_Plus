@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mediaplayer.h'
 **
-** Created: Sun May 27 21:37:57 2012
+** Created: Mon May 28 19:52:50 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -96,7 +96,7 @@ static const uint qt_meta_data_MediaPlayer[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -111,8 +111,9 @@ static const uint qt_meta_data_MediaPlayer[] = {
       56,   12,   12,   12, 0x0a,
       69,   12,   12,   12, 0x0a,
       80,   12,   12,   12, 0x0a,
-     110,   92,   12,   12, 0x08,
-     152,   12,   12,   12, 0x08,
+     110,   92,   12,   12, 0x0a,
+     152,   12,   12,   12, 0x0a,
+     162,   12,   12,   12, 0x0a,
 
        0        // eod
 };
@@ -122,7 +123,7 @@ static const char qt_meta_stringdata_MediaPlayer[] = {
     "forward()\0updateInfo()\0updateTime()\0"
     "finished()\0playPause()\0newstate,oldstate\0"
     "stateChanged(Phonon::State,Phonon::State)\0"
-    "openUrl()\0"
+    "openUrl()\0hasVideoChanged(bool)\0"
 };
 
 const QMetaObject MediaPlayer::staticMetaObject = {
@@ -163,9 +164,10 @@ int MediaPlayer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 6: playPause(); break;
         case 7: stateChanged((*reinterpret_cast< Phonon::State(*)>(_a[1])),(*reinterpret_cast< Phonon::State(*)>(_a[2]))); break;
         case 8: openUrl(); break;
+        case 9: hasVideoChanged((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }

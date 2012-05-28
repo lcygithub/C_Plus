@@ -138,9 +138,9 @@
      musicLable->setLayout(upLayout);
 
      vLayout->addWidget(buttonPanelWidget,0,0);
-
      vLayout->addWidget(musicLable,1,0);
      setLayout(vLayout);
+     setMinimumSize(450,400);
 
      // Create menu bar:
      fileMenu = new QMenu(this);

@@ -308,6 +308,23 @@
      QString fontmono = "<font family=\"monospace,courier new\" color=black>";
 
      QMap <QString, QString> metaData = m_MediaObject.metaData();
+
+    QTableWidgetItem *titleItem = new QTableWidgetItem(metaData.value("TITLE"));
+    titleItem->setFlags(titleItem->flags() ^ Qt::ItemIsEditable);
+    QTableWidgetItem *artistItem = new QTableWidgetItem(metaData.value("ARTIST"));
+    artistItem->setFlags(artistItem->flags() ^ Qt::ItemIsEditable);
+    QTableWidgetItem *albumItem = new QTableWidgetItem(metaData.value("ALBUM"));
+    albumItem->setFlags(albumItem->flags() ^ Qt::ItemIsEditable);
+    QTableWidgetItem *yearItem = new QTableWidgetItem(metaData.value("DATE"));
+    yearItem->setFlags(yearItem->flags() ^ Qt::ItemIsEditable);
+
+    int currentRow = musicTable->rowCount();
+    musicTable->insertRow(currentRow);
+    musicTable->setItem(currentRow, 0, titleItem);
+    musicTable->setItem(currentRow, 1, artistItem);
+    musicTable->setItem(currentRow, 2, albumItem);
+    musicTable->setItem(currentRow, 3, yearItem);
+
      QString trackArtist = metaData.value("ARTIST");
      if (trackArtist.length() > maxLength)
          trackArtist = trackArtist.left(maxLength) + "...";
